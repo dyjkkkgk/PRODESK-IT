@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prodesk IT</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Dark mode config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-slate-900 dark:text-slate-100">
+
+<!-- ================= NAVBAR (GLASS) ================= -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-lg bg-white/30 dark:bg-slate-900/30 border-b border-white/20">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <h1 class="text-xl font-bold text-blue-600">Prodesk IT</h1>
+
+    <ul class="hidden md:flex gap-8 font-medium">
+      <li class="hover:text-blue-500 cursor-pointer">Home</li>
+      <li class="hover:text-blue-500 cursor-pointer">About</li>
+      <li class="hover:text-blue-500 cursor-pointer">Services</li>
+      <li class="hover:text-blue-500 cursor-pointer">Contact</li>
+    </ul>
+
+    <div class="slide-button" id="darkToggle">
+      <div class="slide-button-circle">
+        <span class="slide-icon">🌙</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+  <h2 class="text-4xl md:text-6xl font-extrabold mb-6">
+    We Build Digital Experiences
+  </h2>
+
+  <p class="max-w-xl mb-8 text-lg opacity-80">
+    Helping brands grow using modern web technologies and marketing strategies.
+  </p>
+
+  <button class="px-8 py-4 bg-blue-600 text-white rounded-xl
+                 hover:scale-105 transition-transform shadow-lg">
+    Get Started
+  </button>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-10">
+
+  <div class="p-8 rounded-2xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg
+              hover:-translate-y-3 transition shadow-xl">
+    <h3 class="text-xl font-semibold mb-3">SEO Optimization</h3>
+    <p class="opacity-80">Rank higher and reach more customers.</p>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg
+              hover:-translate-y-3 transition shadow-xl">
+    <h3 class="text-xl font-semibold mb-3">Web Development</h3>
+    <p class="opacity-80">Fast, responsive, modern websites.</p>
+  </div>
+
+  <div class="p-8 rounded-2xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg
+              hover:-translate-y-3 transition shadow-xl">
+    <h3 class="text-xl font-semibold mb-3">Digital Marketing</h3>
+    <p class="opacity-80">Grow your brand online.</p>
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="text-center py-6 border-t border-white/20">
+  © 2026 Prodesk IT. All rights reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

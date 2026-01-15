@@ -1,0 +1,144 @@
+/* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --primary: #2563eb;
+  --secondary: #e5e7eb;
+  --card-bg: #f1f5f9;
+}
+
+/* DARK MODE VARIABLES */
+body.dark {
+  --bg: #0f172a;
+  --text: #f8fafc;
+  --primary: #38bdf8;
+  --secondary: #1e293b;
+  --card-bg: #020617;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* 
+   NAVBAR
+ */
+ /* 
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 40px;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--secondary);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links li:hover {
+  color: var(--primary);
+}
+
+#darkModeToggle {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+} 
+*/
+
+/* DARK MODE SLIDE BUTTON */
+.slide-button {
+  position: relative;
+  width: 60px;
+  height: 32px;
+  background: linear-gradient(90deg, #fbbf24, #60a5fa);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.4s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide-button-circle {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.slide-icon {
+  font-size: 16px;
+  transition: transform 0.4s ease;
+}
+
+.dark .slide-button {
+  background: linear-gradient(90deg, #1e293b, #38bdf8);
+}
+
+.dark .slide-button-circle {
+  left: 30px;
+}
+
+.dark .slide-icon {
+  transform: rotate(180deg);
+}
+
+/*HERO SECTION */
+.hero {
+  height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
