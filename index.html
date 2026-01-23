@@ -1,88 +1,123 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prodesk IT</title>
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Dark mode config -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash-Flow - Salary & Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">💰 Cash-Flow</h1>
+            <p class="tagline">Track Your Salary & Expenses</p>
+        </div>
+    </header>
 
-<body class="bg-gray-100 text-gray-900 dark:bg-slate-900 dark:text-slate-100">
+    <!-- Main Dashboard -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Balance Overview Card -->
+            <section class="balance-card">
+                <h2>Current Balance</h2>
+                <div class="balance-amount" id="currentBalance">₹0.00</div>
+                <div class="balance-details">
+                    <div class="detail-item">
+                        <span class="label">Total Salary:</span>
+                        <span class="value positive" id="totalSalary">₹0.00</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Total Expenses:</span>
+                        <span class="value negative" id="totalExpenses">₹0.00</span>
+                    </div>
+                </div>
+            </section>
 
-<!-- ================= NAVBAR (GLASS) ================= -->
-<nav class="fixed top-0 w-full z-50 backdrop-blur-lg bg-white/30 dark:bg-slate-900/30 border-b border-white/20">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Input Forms Section -->
+            <section class="input-section">
+                <div class="form-container">
+                    <!-- Salary Input Form -->
+                    <div class="form-card">
+                        <h3>💵 Add Salary</h3>
+                        <form id="salaryForm">
+                            <div class="form-group">
+                                <label for="salaryAmount">Amount (₹)</label>
+                                <input type="number" id="salaryAmount" step="0.01" min="0" required placeholder="Enter salary amount in ₹">
+                            </div>
+                            <div class="form-group">
+                                <label for="salarySource">Source</label>
+                                <input type="text" id="salarySource" required placeholder="e.g., Monthly Salary, Freelance">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Salary</button>
+                        </form>
+                    </div>
 
-    <h1 class="text-xl font-bold text-blue-600">Prodesk IT</h1>
+                    <!-- Expense Input Form -->
+                    <div class="form-card">
+                        <h3>💸 Add Expense</h3>
+                        <form id="expenseForm">
+                            <div class="form-group">
+                                <label for="expenseAmount">Amount (₹)</label>
+                                <input type="number" id="expenseAmount" step="0.01" min="0" required placeholder="Enter expense amount in ₹">
+                            </div>
+                            <div class="form-group">
+                                <label for="expenseCategory">Category</label>
+                                <select id="expenseCategory" required>
+                                    <option value="">Select category</option>
+                                    <option value="food">🍔 Food</option>
+                                    <option value="transport">🚗 Transport</option>
+                                    <option value="utilities">💡 Utilities</option>
+                                    <option value="entertainment">🎬 Entertainment</option>
+                                    <option value="shopping">🛍️ Shopping</option>
+                                    <option value="health">🏥 Healthcare</option>
+                                    <option value="other">📦 Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="expenseDescription">Description</label>
+                                <input type="text" id="expenseDescription" required placeholder="What was this expense for?">
+                            </div>
+                            <button type="submit" class="btn btn-danger">Add Expense</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
 
-    <ul class="hidden md:flex gap-8 font-medium">
-      <li class="hover:text-blue-500 cursor-pointer">Home</li>
-      <li class="hover:text-blue-500 cursor-pointer">About</li>
-      <li class="hover:text-blue-500 cursor-pointer">Services</li>
-      <li class="hover:text-blue-500 cursor-pointer">Contact</li>
-    </ul>
+            <!-- Transaction History Section -->
+            <section class="history-section">
+                <div class="section-header">
+                    <h3>📊 Transaction History</h3>
+                    <button id="clearAllBtn" class="btn btn-secondary">Clear All Data</button>
+                </div>
+                
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-filter="all">All</button>
+                    <button class="tab-btn" data-filter="salary">Salary</button>
+                    <button class="tab-btn" data-filter="expense">Expenses</button>
+                </div>
 
-    <div class="slide-button" id="darkToggle">
-      <div class="slide-button-circle">
-        <span class="slide-icon">🌙</span>
-      </div>
-    </div>
-  </div>
-</nav>
+                <!-- Transactions List -->
+                <div class="transactions-list" id="transactionsList">
+                    <div class="empty-state">
+                        <p>No transactions yet. Start by adding your salary or expenses!</p>
+                    </div>
+                </div>
+            </section>
 
-<!-- ================= HERO ================= -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6">
-  <h2 class="text-4xl md:text-6xl font-extrabold mb-6">
-    We Build Digital Experiences
-  </h2>
+        </div>
+    </main>
 
-  <p class="max-w-xl mb-8 text-lg opacity-80">
-    Helping brands grow using modern web technologies and marketing strategies.
-  </p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Cash-Flow Tracker. Built with Vanilla JavaScript</p>
+        </div>
+    </footer>
 
-  <button class="px-8 py-4 bg-blue-600 text-white rounded-xl
-                 hover:scale-105 transition-transform shadow-lg">
-    Get Started
-  </button>
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-10">
-
-  <div class="p-8 rounded-2xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg
-              hover:-translate-y-3 transition shadow-xl">
-    <h3 class="text-xl font-semibold mb-3">SEO Optimization</h3>
-    <p class="opacity-80">Rank higher and reach more customers.</p>
-  </div>
-
-  <div class="p-8 rounded-2xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg
-              hover:-translate-y-3 transition shadow-xl">
-    <h3 class="text-xl font-semibold mb-3">Web Development</h3>
-    <p class="opacity-80">Fast, responsive, modern websites.</p>
-  </div>
-
-  <div class="p-8 rounded-2xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg
-              hover:-translate-y-3 transition shadow-xl">
-    <h3 class="text-xl font-semibold mb-3">Digital Marketing</h3>
-    <p class="opacity-80">Grow your brand online.</p>
-  </div>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="text-center py-6 border-t border-white/20">
-  © 2026 Prodesk IT. All rights reserved.
-</footer>
-
-<script src="script.js"></script>
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
